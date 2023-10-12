@@ -9,10 +9,10 @@ const NewsArticles = document.querySelector(".news-articles");
 const NewsArticle = document.querySelector(".news-article");
 
 const API_URL =
-  // "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=79a0bf0a3fe9484c97e4dd331f501caf";
+  "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=79a0bf0a3fe9484c97e4dd331f501caf";
 
 const SEARCH_URL =
-  // "https://newsapi.org/v2/everything?q='from=2023-10-10&sortBy=popularity&apiKey=79a0bf0a3fe9484c97e4dd331f501caf";
+  "https://newsapi.org/v2/everything?q='from=2023-10-10&sortBy=popularity&apiKey=79a0bf0a3fe9484c97e4dd331f501caf";
 
 getNews(API_URL);
 
@@ -41,6 +41,8 @@ function showNews(News) {
             <h3 class="headline">
             ${title}
             </h3>
+            <a href=${url}>${url}</a>
+
             <h6 class="author">${author}</h6>
             <p class="time-date">${publishedAt}</p>
           </div>
@@ -69,7 +71,7 @@ form.addEventListener("submit", async (e) => {
   const searchTerm = search.value.trim();
 
   if (searchTerm !== "") {
-    // const SEARCH_URL = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2023-10-10&sortBy=popularity&apiKey=79a0bf0a3fe9484c97e4dd331f501caf`;
+    const SEARCH_URL = `https://newsapi.org/v2/everything?q=${searchTerm}&from=2023-10-10&sortBy=popularity&apiKey=79a0bf0a3fe9484c97e4dd331f501caf`;
     try {
       const data = await fetch(SEARCH_URL);
       if (!data.ok) {
