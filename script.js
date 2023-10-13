@@ -1,9 +1,18 @@
+// mobile navigation
+const btnNavEl = document.querySelector(".btn-mobile-nav");
+const headerEl = document.querySelector(".header");
+
+btnNavEl.addEventListener("click", function () {
+  headerEl.classList.toggle("nav-open");
+});
+
+// API Integration
+
 const API_KEY = "79a0bf0a3fe9484c97e4dd331f501caf";
 const allNews = document.getElementById("home");
 const selectedNews = document.getElementById("selected");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
-// const searchBtn = document.getElementById("searchBtn");
 
 const NewsArticles = document.querySelector(".news-articles");
 const NewsArticle = document.querySelector(".news-article");
@@ -39,10 +48,8 @@ function showNews(News) {
           <div class="news-article-headline">
             <p class="source">${source}</p>
             <h3 class="headline">
-            ${title}
+            <a class="news-link" href=${url}>${title}</a>
             </h3>
-            <a href=${url}>${url}</a>
-
             <h6 class="author">${author}</h6>
             <p class="time-date">${publishedAt}</p>
           </div>
@@ -59,6 +66,8 @@ function showNews(News) {
             />
           </div>
         </div>
+
+
 
     `;
     NewsArticles.insertAdjacentHTML("afterbegin", markup);
